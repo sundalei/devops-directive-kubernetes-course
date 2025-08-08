@@ -6,7 +6,7 @@ The first concepts to understand with regard to kubernetes are:
 
 - **Node:** A "node" is a computer/server. Multiple nodes are joined together to form a "cluster".
 - **Control Plane:** A subset of nodes in the cluster dedicated to performing system tasks. Nodes that are part of the control plane are referred to as "control plane nodes".
-- **Data Plane:** A subset of nodes in the cluster dedicated to running user worklods. Nodes that are part of the data plane are referred to as "worker nodes".
+- **Data Plane:** A subset of nodes in the cluster dedicated to running user workloads. Nodes that are part of the data plane are referred to as "worker nodes".
 
 ![control-and-data-planes](readme-assets/control-and-data-planes.jpg)
 
