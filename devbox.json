@@ -11,7 +11,8 @@
     "tilt@latest",
     "ko@latest",
     "go@latest",
-    "yq@latest"
+    "yq@latest",
+    "path:gcloud#google-cloud-sdk"
   ],
   "shell": {
     "init_hook": [
