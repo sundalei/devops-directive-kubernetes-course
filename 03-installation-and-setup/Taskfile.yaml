@@ -158,7 +158,9 @@ tasks:
   gcp:09-clean-up:
     cmds:
       - gcloud container clusters delete ${CLUSTER_NAME} --zone ${GCP_ZONE} --quiet
+      - sleep 10
       - gcloud compute networks subnets delete subnet-1 --region=${GCP_REGION} --quiet
+      - sleep 10
       - gcloud compute networks delete ${CLUSTER_NAME} --quiet
     desc: Delete the GCP network, subnet, firewall rules, and cluster in reverse sequence
 
