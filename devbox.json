@@ -3,7 +3,15 @@
   "packages": [
     "git@latest",
     "kubernetes-helm@latest",
-    "kubectx@latest"
+    "kubectx@latest",
+    "go-task@latest",
+    "envsubst@latest",
+    "kind@latest",
+    "gum@latest",
+    "tilt@latest",
+    "ko@latest",
+    "go@latest",
+    "yq@latest"
   ],
   "shell": {
     "init_hook": [

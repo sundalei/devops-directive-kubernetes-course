@@ -48,7 +48,7 @@ func main() {
 
 	r.GET("/ping", func(c *gin.Context) {
 		_, _ = database.GetTimeAndRequestCount(c)
-		c.JSON(200, "pong")
+		c.JSON(200, "ping")
 	})
 
 	port := os.Getenv("PORT")
