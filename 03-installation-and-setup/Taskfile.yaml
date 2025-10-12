@@ -85,12 +85,23 @@ tasks:
 
   civo:06-clean-up:
     cmds:
-      - civo kubernetes delete ${CLUSTER_NAME} --region ${CIVO_REGION} -y
+      - |
+        echo "Checking for and deleting any Civo volumes attached to cluster '${CLUSTER_NAME}'..."
+        VOLUME_IDS=$(civo volume list --region ${CIVO_REGION} -o json | jq -r '.[].id')
+        if [ -z "$VOLUME_IDS" ]; then
+          echo "No associated volumes found."
+        else
+          echo "Found volumes to delete: $VOLUME_IDS"
+          echo "$VOLUME_IDS" | xargs -r -I {} civo volume delete --region ${CIVO_REGION} {} -y
+        fi
+      - sleep 10
+      - civo kubernetes delete ${CLUSTER_NAME} --region ${CIVO_REGION} -y || true
       - cmd: gum style "There is some delay on the civo side from cluster being deleted to it being removed from the firewall rule usage"
         silent: true
       - sleep 10
-      - civo firewall delete ${CLUSTER_NAME} --region ${CIVO_REGION} -y
-      - civo network delete ${CLUSTER_NAME} --region ${CIVO_REGION} -y
+      - civo firewall delete ${CLUSTER_NAME} --region ${CIVO_REGION} -y || true
+      - sleep 10
+      - civo network delete ${CLUSTER_NAME} --region ${CIVO_REGION} -y || true
     desc: Clean up the Civo Kubernetes cluster and associated resources
 
   gcp:01-init-cli:
