@@ -12,7 +12,8 @@
     "ko@latest",
     "go@latest",
     "yq@latest",
-    "path:gcloud#google-cloud-sdk"
+    "path:gcloud#google-cloud-sdk",
+    "k9s@latest"
   ],
   "shell": {
     "init_hook": [
