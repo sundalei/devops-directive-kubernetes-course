@@ -3,7 +3,7 @@ version: "3"
 vars:
   DATABASE_URL: "postgres://postgres:foobarbaz@localhost:5432/postgres"
   IMAGE_REPO: sundalei/devops-directive-docker-course-api-golang
-  IMAGE_TAG: foobarbaz
+  IMAGE_TAG: prod-v2
 
 tasks:
   install:

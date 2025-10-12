@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "civo@latest": {
+      "last_modified": "2025-09-18T16:33:27Z",
+      "resolved": "github:NixOS/nixpkgs/f4b140d5b253f5e2a1ff4e5506edbf8267724bde#civo",
+      "source": "devbox-search",
+      "version": "1.4.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zh3klbxx87iz6k2qilqn3brpx3d0zvjz-civo-1.4.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/zh3klbxx87iz6k2qilqn3brpx3d0zvjz-civo-1.4.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0hi00pap5qgfgfmi0cqj27csq4ysxm4x-civo-1.4.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0hi00pap5qgfgfmi0cqj27csq4ysxm4x-civo-1.4.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/s3vl9fgj2wd2ag9f2fa4idbp0azn6ixn-civo-1.4.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/s3vl9fgj2wd2ag9f2fa4idbp0azn6ixn-civo-1.4.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7i48hjjz0dbjc2sdk3g938s1ib6qjhkj-civo-1.4.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/7i48hjjz0dbjc2sdk3g938s1ib6qjhkj-civo-1.4.3"
+        }
+      }
+    },
     "envsubst@latest": {
       "last_modified": "2025-09-18T16:33:27Z",
       "resolved": "github:NixOS/nixpkgs/f4b140d5b253f5e2a1ff4e5506edbf8267724bde#envsubst",

@@ -37,8 +37,6 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
-      imagePullSecrets:
-        - name: dockerconfigjson
       securityContext:
         seccompProfile:
           type: RuntimeDefault

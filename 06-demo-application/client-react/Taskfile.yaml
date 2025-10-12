@@ -2,7 +2,7 @@ version: "3"
 
 vars:
   IMAGE_REPO: sundalei/devops-directive-docker-course-client-react-nginx
-  IMAGE_TAG: foobarbaz
+  IMAGE_TAG: prod
 
 tasks:
   build-container-image:
