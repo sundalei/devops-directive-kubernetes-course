@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: api-golang
-  namespace: demo-app
+  namespace: demo-app-2
 spec:
   entryPoints:
     - web

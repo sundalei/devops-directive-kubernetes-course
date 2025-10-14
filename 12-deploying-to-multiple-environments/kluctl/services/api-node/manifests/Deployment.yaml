@@ -6,7 +6,7 @@ metadata:
   labels:
     app: api-node
 spec:
-  replicas: 1
+  replicas: {{apiNode.replicas}}
   selector:
     matchLabels:
       app: api-node
