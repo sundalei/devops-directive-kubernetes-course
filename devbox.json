@@ -15,7 +15,8 @@
     "path:gcloud#google-cloud-sdk",
     "k9s@latest",
     "civo@latest",
-    "kluctl@latest"
+    "kluctl@latest",
+    "kubent@latest"
   ],
   "shell": {
     "init_hook": [

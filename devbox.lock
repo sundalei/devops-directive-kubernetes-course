@@ -557,6 +557,54 @@
         }
       }
     },
+    "kubent@latest": {
+      "last_modified": "2025-09-18T16:33:27Z",
+      "resolved": "github:NixOS/nixpkgs/f4b140d5b253f5e2a1ff4e5506edbf8267724bde#kubent",
+      "source": "devbox-search",
+      "version": "0.7.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/i8c9lwbb79k8lngrfv5wxadpyqcl0hw5-kubent-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/i8c9lwbb79k8lngrfv5wxadpyqcl0hw5-kubent-0.7.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9vmgd68l810bc5ijcmdjv90cynr3rc20-kubent-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9vmgd68l810bc5ijcmdjv90cynr3rc20-kubent-0.7.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4gddjjgnsj4lfxkb1k9yv271358z8rfh-kubent-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/4gddjjgnsj4lfxkb1k9yv271358z8rfh-kubent-0.7.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1gsj8m73dkb2jydl3lb45402xv0h69g2-kubent-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1gsj8m73dkb2jydl3lb45402xv0h69g2-kubent-0.7.3"
+        }
+      }
+    },
     "kubernetes-helm@latest": {
       "last_modified": "2025-09-18T16:33:27Z",
       "resolved": "github:NixOS/nixpkgs/f4b140d5b253f5e2a1ff4e5506edbf8267724bde#kubernetes-helm",

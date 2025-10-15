@@ -29,7 +29,7 @@ tasks:
   04-upgrade-control-plane:
     desc: "Upgrade the control plane to a specific version"
     vars:
-      VERSION: 1.30.1-gke.1329003
+      VERSION: 1.34.0-gke.2201000
     cmds:
       - cmd: |
           gum style "$(cat <<EOF
@@ -51,7 +51,7 @@ tasks:
   05-create-new-nodepool:
     desc: "Provision a new nodepool with the update control plane version"
     vars:
-      GCP_PROJECT_ID: kubernetes-course-424917
+      GCP_PROJECT_ID: kubernetes-course-dalei
     cmds:
       - |
         gcloud container node-pools create updated-node-pool \
