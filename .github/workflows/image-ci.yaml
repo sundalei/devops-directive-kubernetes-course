@@ -19,6 +19,8 @@ jobs:
 
   generate-image-tag:
     runs-on: ubuntu-latest
+    outputs:
+      image_tag: ${{ steps.generate-image-tag.outputs.image_tag}}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
