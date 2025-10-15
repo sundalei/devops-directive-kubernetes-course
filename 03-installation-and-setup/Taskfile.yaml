@@ -87,6 +87,7 @@ tasks:
     cmds:
       - |
         echo "Checking for and deleting any Civo volumes attached to cluster '${CLUSTER_NAME}'..."
+        
         VOLUME_IDS=$(civo volume list --region ${CIVO_REGION} -o json | jq -r '.[].id')
         if [ -z "$VOLUME_IDS" ]; then
           echo "No associated volumes found."

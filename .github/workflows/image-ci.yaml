@@ -1,0 +1,19 @@
+name: image-ci
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "[0-9]*.[0-9]*.[0-9]*"
+    paths:
+      # Only rebuild images when applications change
+      - "06-demo-application/**/*"
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "Hello, world!"
+
