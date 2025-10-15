@@ -36,4 +36,5 @@ jobs:
         working-directory: 14-cicd/github-actions
         run: |
           image_tag=$(task generate-version-tag)
+          echo "Generated image tag: $image_tag"
           echo "image_tag=$image_tag" >> $GITHUB_OUTPUT
