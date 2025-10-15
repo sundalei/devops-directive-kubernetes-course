@@ -30,3 +30,10 @@ jobs:
         uses: arduino/setup-task@v2
         with:
           version: 3.x
+
+      - name: Generate Image Tag
+        id: generate-image-tag
+        working-directory: 14-cicd/github-actions
+        run: |
+          image_tag=$(task generate-version-tag)
+          echo "image_tag=$image_tag" >> $GITHUB_OUTPUT
