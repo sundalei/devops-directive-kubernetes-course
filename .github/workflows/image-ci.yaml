@@ -43,6 +43,16 @@ jobs:
 
   build-tag-push:
     runs-on: ubuntu-latest
+    needs:
+      - generate-image-tag
+    strategy:
+      matrix:
+        path:
+          - 06-demo-application/api-golang
+          - 06-demo-application/api-node
+          - 06-demo-application/client-react
+          - 06-demo-application/load-generator-python
+          - 06-demo-application/postgresql
     steps:
       - name: hello
         run: echo "hello"
