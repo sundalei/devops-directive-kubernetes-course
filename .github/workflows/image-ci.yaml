@@ -85,3 +85,10 @@ jobs:
         if: matrix.path == '06-demo-application/api-golang'
         with:
           version: v0.17.1
+
+      - name: Build Image
+        env:
+          IMAGE_TAG: ${{ needs.generate-image-tag.outputs.image_tag }}
+        working-directory: ${{ matrix.path }}
+        run: |
+          task build-container-image-multi-arch IMAGE_TAG=${IMAGE_TAG}
