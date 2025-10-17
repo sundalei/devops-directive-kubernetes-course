@@ -1,3 +1,3 @@
 apiNode:
-  version: 1.0.0 # PRODUCTION_IMAGE_TAG
+  version: 0.0.4 # PRODUCTION_IMAGE_TAG
   replicas: 3
