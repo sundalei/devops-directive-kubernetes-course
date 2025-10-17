@@ -11,11 +11,6 @@ on:
       # - "06-demo-application/**/*"
 
 jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello
-        run: echo "Hello, world!"
 
   generate-image-tag:
     runs-on: ubuntu-latest
