@@ -104,6 +104,10 @@ jobs:
     needs:
       - generate-image-tag
       - build-tag-push
+    permissions:
+      contents: write
+      pull-requests: write
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -121,3 +125,15 @@ jobs:
         run: |
           # Update staging tags for push to main or release tag
           task update-staging-image-tags NEW_TAG=${IMAGE_TAG}
+
+          # Update production tags only for release tag pushes
+          if [[ "${{ github.ref }}" == refs/tags/*.*.* ]]; then
+            task update-production-image-tags NEW_TAG=${IMAGE_TAG}
+          fi
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          base: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Update image tags to (${{ needs.generate-image-tag.outputs.image_tag }})"
