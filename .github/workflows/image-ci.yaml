@@ -76,12 +76,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - uses: actions/setup-go@v6
+      - name: Set up Go
+        uses: actions/setup-go@v6
         if: matrix.path == '06-demo-application/api-golang'
         with:
           go-version: '1.22.x'
 
-      - uses: ko-build/setup-ko@v0.8
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        if: matrix.path == '06-demo-application/api-golang'
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('06-demo-application/api-golang/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Set up ko
+        uses: ko-build/setup-ko@v0.8
         if: matrix.path == '06-demo-application/api-golang'
         with:
           version: v0.17.1
