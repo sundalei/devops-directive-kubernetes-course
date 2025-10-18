@@ -6,9 +6,9 @@ on:
       - main
     tags:
       - "[0-9]*.[0-9]*.[0-9]*"
-    paths:
+    # paths:
       # Only rebuild images when applications change
-      - "06-demo-application/**/*"
+      # - "06-demo-application/**/*"
 
 jobs:
 
@@ -76,6 +76,7 @@ jobs:
         if: matrix.path == '06-demo-application/api-golang'
         with:
           go-version: '1.22.x'
+          cache: false
 
       - name: Cache Go modules
         uses: actions/cache@v4
