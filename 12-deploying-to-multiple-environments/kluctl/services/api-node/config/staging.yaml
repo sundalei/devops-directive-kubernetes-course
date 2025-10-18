@@ -1,2 +1,3 @@
 apiNode:
   version: 0.0.4-7-g52cb815 # STAGING_IMAGE_TAG
+  replicas: 2
