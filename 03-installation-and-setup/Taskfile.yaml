@@ -1,7 +1,7 @@
 version: "3"
 
 env:
-  CLUSTER_NAME: devops-directive-kubernetes-course
+  CLUSTER_NAME: civo-cloud-cluster
   CIVO_REGION: NYC1
   GCP_REGION: us-central1
   GCP_ZONE: us-central1-a
@@ -44,7 +44,6 @@ tasks:
       - |
         civo firewall create ${CLUSTER_NAME} \
         --network ${CLUSTER_NAME} \
-        --create-rules false \
         --region ${CIVO_REGION}
       - |
         ingress_rule_ids=$(civo firewall rule ls --region ${CIVO_REGION} ${CLUSTER_NAME} -o json | jq -r '.[] | select(.direction == "ingress") | .id')
