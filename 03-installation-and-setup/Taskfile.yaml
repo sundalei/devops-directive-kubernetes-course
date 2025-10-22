@@ -3,6 +3,7 @@ version: "3"
 env:
   CLUSTER_NAME: civo-cloud-cluster
   CIVO_REGION: NYC1
+  GCP_CLUSTER_NAME: gcp-cluster-dalei
   GCP_REGION: us-central1
   GCP_ZONE: us-central1-a
   # Set default gum style options
@@ -130,14 +131,14 @@ tasks:
 
   gcp:04-create-vpc:
     cmds:
-      - gcloud compute networks create ${CLUSTER_NAME} --subnet-mode=custom
+      - gcloud compute networks create ${GCP_CLUSTER_NAME} --subnet-mode=custom
     desc: "Create VPC"
 
   gcp:05-create-subnet:
     cmds:
       - |
         gcloud compute networks subnets create subnet-1 \
-          --network=${CLUSTER_NAME} \
+          --network=${GCP_CLUSTER_NAME} \
           --region=${GCP_REGION} \
           --range=10.0.0.0/20
     desc: "Create subnet"
@@ -145,17 +146,31 @@ tasks:
   gcp:06-create-cluster:
     desc: "Create GKE cluster"
     vars:
-      GCP_PROJECT_ID: kubernetes-course-dalei
+      GCP_PROJECT_ID: gcp-cluster-dalei
     cmds:
       - |
-        gcloud container clusters create ${CLUSTER_NAME} \
+        gcloud container clusters create ${GCP_CLUSTER_NAME} \
           --zone ${GCP_ZONE} \
-          --network ${CLUSTER_NAME} \
+          --network ${GCP_CLUSTER_NAME} \
           --subnetwork subnet-1 \
           --machine-type e2-standard-2 \
           --num-nodes 2 \
           --gateway-api=standard \
           --workload-pool={{.GCP_PROJECT_ID}}.svc.id.goog
+
+  gcp:06-create-cluster-without-workload-identity:
+    desc: "Create GKE cluster without Workload Identity"
+    vars:
+      GCP_PROJECT_ID: gcp-cluster-dalei
+    cmds:
+      - |
+        gcloud container clusters create ${GCP_CLUSTER_NAME} \
+          --zone ${GCP_ZONE} \
+          --network ${GCP_CLUSTER_NAME} \
+          --subnetwork subnet-1 \
+          --machine-type e2-standard-2 \
+          --num-nodes 2 \
+          --gateway-api=standard
 
   gcp:07-create-all:
     cmds:
@@ -168,16 +183,16 @@ tasks:
 
   gcp:09-clean-up:
     cmds:
-      - gcloud container clusters delete ${CLUSTER_NAME} --zone ${GCP_ZONE} --quiet
+      - gcloud container clusters delete ${GCP_CLUSTER_NAME} --zone ${GCP_ZONE} --quiet
       - sleep 10
       - gcloud compute networks subnets delete subnet-1 --region=${GCP_REGION} --quiet
       - sleep 10
-      - gcloud compute networks delete ${CLUSTER_NAME} --quiet
+      - gcloud compute networks delete ${GCP_CLUSTER_NAME} --quiet
     desc: Delete the GCP network, subnet, firewall rules, and cluster in reverse sequence
 
   gcp:08-connect-to-cluster:
     cmds:
-      - gcloud container clusters get-credentials ${CLUSTER_NAME} --zone ${GCP_ZONE}
+      - gcloud container clusters get-credentials ${GCP_CLUSTER_NAME} --zone ${GCP_ZONE}
     desc: "Connect to the GKE cluster"
 
   kind:01-generate-config:
