@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: nginx
-      image: cgr.dev/chainguard/nginx:latest
+      image: cgr.dev/chainguard/nginx:latest-dev
       ports:
         - containerPort: 8080
           protocol: TCP
@@ -27,6 +27,6 @@ spec:
   securityContext:
     seccompProfile:
       type: RuntimeDefault
-    runAsUser: 1001
-    runAsGroup: 1001
+    runAsUser: 65532
+    runAsGroup: 65532
     runAsNonRoot: true
