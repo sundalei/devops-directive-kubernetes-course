@@ -37,11 +37,11 @@ tasks:
           --repo https://charts.konghq.com \
           -n kong \
           --create-namespace \
-          --version 0.12.0
+          --version 0.21.0
       - cmd: gum style "🚨 We will learn more about CustomResourceDefinitions in a later part of the course... for now just 🤞"
         silent: true
       # Kong requires the latest CRDs
-      - kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/experimental-install.yaml
+      - kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.0/experimental-install.yaml
 
   05-apply-gatewayclass-gateway-route:
     desc: "Apply the necessary gateway resources to route traffic to example deployment"
