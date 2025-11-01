@@ -3,7 +3,7 @@ version: "3"
 env:
   CLUSTER_NAME: civo-cloud-cluster
   CIVO_REGION: NYC1
-  GCP_CLUSTER_NAME: gcp-cluster-dalei
+  GCP_CLUSTER_NAME: gcp-cluster-sundalei
   GCP_REGION: us-central1
   GCP_ZONE: us-central1-a
   # Set default gum style options
@@ -146,7 +146,7 @@ tasks:
   gcp:06-create-cluster:
     desc: "Create GKE cluster"
     vars:
-      GCP_PROJECT_ID: gcp-cluster-dalei
+      GCP_PROJECT_ID: gcp-cluster-sundalei
     cmds:
       - |
         gcloud container clusters create ${GCP_CLUSTER_NAME} \
