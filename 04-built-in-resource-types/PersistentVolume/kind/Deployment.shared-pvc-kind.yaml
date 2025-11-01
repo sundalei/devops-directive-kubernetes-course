@@ -6,7 +6,7 @@ spec:
   # Both pods can only run simultaneously on the same node because
   # PVC has accessModes: [ReadWriteOnce]. Would be better to demo this
   # on multi-node cluster
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nginx

@@ -4,7 +4,7 @@ metadata:
   name: individual-pvcs-kind
 spec:
   serviceName: "individual-pvcss"
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nginx-sts-kind
@@ -39,3 +39,7 @@ spec:
   clusterIP: None
   selector:
     app: nginx-sts-kind
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
