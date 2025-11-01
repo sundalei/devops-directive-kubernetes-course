@@ -19,7 +19,7 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - kind-worker
+                - local-cluster-worker
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -42,4 +42,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - kind-worker2
+                - local-cluster-worker2
