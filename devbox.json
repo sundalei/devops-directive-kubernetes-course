@@ -16,7 +16,8 @@
     "k9s@latest",
     "civo@latest",
     "kluctl@latest",
-    "kubent@latest"
+    "kubent@latest",
+    "oras@latest"
   ],
   "shell": {
     "init_hook": [
