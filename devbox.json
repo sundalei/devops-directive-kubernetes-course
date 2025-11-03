@@ -17,7 +17,9 @@
     "civo@latest",
     "kluctl@latest",
     "kubent@latest",
-    "oras@latest"
+    "oras@latest",
+    "nodejs@latest",
+    "poetry@latest"
   ],
   "shell": {
     "init_hook": [

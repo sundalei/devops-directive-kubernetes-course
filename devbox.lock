@@ -653,6 +653,87 @@
         }
       }
     },
+    "nodejs@latest": {
+      "last_modified": "2025-10-11T06:31:15Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/362791944032cb532aabbeed7887a441496d5e6e#nodejs_24",
+      "source": "devbox-search",
+      "version": "24.10.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/355hbbr8bfhyij7vkqczbjmgqa9dbrsh-nodejs-24.10.0",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/pfnl3nqxa7agrd4rw52z52pspss7nvbi-nodejs-24.10.0-dev"
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/ch0ss8jqxs4dda64786ap78s3vrfi3kz-nodejs-24.10.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/355hbbr8bfhyij7vkqczbjmgqa9dbrsh-nodejs-24.10.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ybfap4y7drm5nbx358cj238ba87gp8bk-nodejs-24.10.0",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/zdwjsr9hcb8ydkgwvljnm1rcbfg3336k-nodejs-24.10.0-dev"
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/lmcnw7gwb71bfy15qb87b1cphsxvj5jp-nodejs-24.10.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/ybfap4y7drm5nbx358cj238ba87gp8bk-nodejs-24.10.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bgh57m6c4k348hd4wyb367xwkljq42ky-nodejs-24.10.0",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/747r79izxv4jm0h1zn2qdyc7hbz06ckz-nodejs-24.10.0-dev"
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/2zb0z0qhzb29jlksjpc2vz0sk9icln1p-nodejs-24.10.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/bgh57m6c4k348hd4wyb367xwkljq42ky-nodejs-24.10.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/p2sk3402d788hqn5diy5gba8cskjffzz-nodejs-24.10.0",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/fn613shrdw5k5d5is7h8rs3dmi9xrh37-nodejs-24.10.0-dev"
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/y9km82y1yqw1r7ld0xcifpj9zfzfy0q3-nodejs-24.10.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/p2sk3402d788hqn5diy5gba8cskjffzz-nodejs-24.10.0"
+        }
+      }
+    },
     "oras@latest": {
       "last_modified": "2025-10-07T08:41:47Z",
       "resolved": "github:NixOS/nixpkgs/bce5fe2bb998488d8e7e7856315f90496723793c#oras",
@@ -698,6 +779,71 @@
             }
           ],
           "store_path": "/nix/store/kpjcvh7154saggngvi1nqfib83sy3awi-oras-1.3.0"
+        }
+      }
+    },
+    "poetry@latest": {
+      "last_modified": "2025-10-07T08:41:47Z",
+      "plugin_version": "0.0.4",
+      "resolved": "github:NixOS/nixpkgs/bce5fe2bb998488d8e7e7856315f90496723793c#poetry",
+      "source": "devbox-search",
+      "version": "2.2.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/r9hx24sgm1j6fgc7k3iimzvs578x74ni-python3.13-poetry-2.2.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/z5mlnbjvi194jinh1954cgw9pnma6rjc-python3.13-poetry-2.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/r9hx24sgm1j6fgc7k3iimzvs578x74ni-python3.13-poetry-2.2.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x81km926mwl1cw4g69hp3xa650yh6x2h-python3.13-poetry-2.2.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/dvzd51ciyvcmkw89y4cib6nn395ij2r6-python3.13-poetry-2.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/x81km926mwl1cw4g69hp3xa650yh6x2h-python3.13-poetry-2.2.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pvsmkshnzd892pw6yfjwswahycd7z2if-python3.13-poetry-2.2.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/b7g8rjx6bj24jfd9vbxvwhl2zdswa0iz-python3.13-poetry-2.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/pvsmkshnzd892pw6yfjwswahycd7z2if-python3.13-poetry-2.2.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7fv57d1mglcr01mfzla5jhkbjfh0r0ki-python3.13-poetry-2.2.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/9n8kp052wwcjr8w17phr0r3ci2yad9f3-python3.13-poetry-2.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/7fv57d1mglcr01mfzla5jhkbjfh0r0ki-python3.13-poetry-2.2.1"
         }
       }
     },

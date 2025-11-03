@@ -29,4 +29,4 @@ tasks:
     desc: Start load generator
     cmds:
       # api-golang is listening on port 8000
-      - API_URL=http://localhost:8000/ DELAY_MS=100 poetry run python main.py
+      - API_URL=http://localhost:8000/ DELAY_MS=2000 poetry run python main.py
