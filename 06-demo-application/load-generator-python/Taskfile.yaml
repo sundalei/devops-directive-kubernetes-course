@@ -2,7 +2,7 @@ version: "3"
 
 vars:
   IMAGE_REPO: sundalei/devops-directive-kubernetes-course-load-generator-python
-  IMAGE_TAG: prod
+  IMAGE_TAG: foobarbaz
 
 tasks:
   build-container-image:
