@@ -5,8 +5,8 @@ metadata:
   namespace: postgres
 spec:
   ports:
-  - port: 5432
-    targetPort: 5432
+    - port: 5432
+      targetPort: 5432
   selector:
     app: postgres
   clusterIP: None
@@ -28,24 +28,24 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:16
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: POSTGRES_PASSWORD
-          value: foobarbaz
-        - name: PGDATA
-          value: /var/lib/postgresql/data/pgdata
-        ports:
-        - containerPort: 5432
-        volumeMounts:
-        - name: data
-          mountPath: /var/lib/postgresql/data
+        - name: postgres
+          image: postgres:16
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: POSTGRES_PASSWORD
+              value: foobarbaz
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 1Gi
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
