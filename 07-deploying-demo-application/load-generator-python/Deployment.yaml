@@ -18,12 +18,12 @@ spec:
       containers:
         - name: load-generator
           image: sundalei/devops-directive-kubernetes-course-load-generator-python:foobarbaz
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: API_URL
               value: http://api-node.demo-app.svc.cluster.local:3000
             - name: DELAY_MS
-              value: "500"
+              value: "2000"
           # Could alternatively move these to a configmap
           # envFrom:
           #   - configMapRef:
@@ -37,8 +37,6 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
-      imagePullSecrets:
-        - name: dockerconfigjson
       securityContext:
         seccompProfile:
           type: RuntimeDefault
