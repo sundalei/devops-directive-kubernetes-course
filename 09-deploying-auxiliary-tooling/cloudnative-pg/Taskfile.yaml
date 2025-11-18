@@ -75,6 +75,7 @@ tasks:
     cmds:
       - cmd: gum style "🚨 This assumes you have set up a Civo object store and placed the credentials in a secret named civo-object-store-creds! 🚨 "
         silent: true
+      - kubectl apply -f Secret.civo-object-store-creds.yaml
       - kubectl apply -f Cluster.cnpg-with-backup-config-civo.yaml
       - kubectl apply -f ScheduleBackup.yaml
       - kubectl apply -f Backup.yaml

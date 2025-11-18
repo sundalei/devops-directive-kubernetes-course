@@ -17,4 +17,7 @@ spec:
         secretAccessKey:
           name: civo-object-store-creds
           key: AWS_SECRET_ACCESS_KEY
+        region:
+          name: civo-object-store-creds
+          key: AWS_REGION
     retentionPolicy: "30d"
