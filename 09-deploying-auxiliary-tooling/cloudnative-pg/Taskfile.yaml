@@ -54,7 +54,7 @@ tasks:
           serviceAccount:cnpg-backups@gcp-cluster-sundalei.iam.gserviceaccount.com:roles/storage.legacyBucketReader \
           gs://{{.BUCKET_NAME}}
 
-      - cmd: gum style "Attach roles/iam.workloadIdentityUser to kubernetes service account"
+      - cmd: gum style "Authorize the Kubernetes Service Account to impersonate the Google Service Account."
         silent: true
       - |
         gcloud iam service-accounts add-iam-policy-binding cnpg-backups@gcp-cluster-sundalei.iam.gserviceaccount.com \
