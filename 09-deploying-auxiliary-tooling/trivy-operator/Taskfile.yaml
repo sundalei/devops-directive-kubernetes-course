@@ -10,7 +10,7 @@ tasks:
         helm upgrade --install trivy-operator aqua/trivy-operator \
           --namespace trivy-system \
           --create-namespace \
-          --version 0.23.2
+          --version 0.29.0
 
   02-uninstall-trivy-operator:
     desc: "Uninstall the trivy operator"
