@@ -26,15 +26,15 @@ tasks:
       - cmd: gum style "Attach roles/secretmanager.secretAccessor to IAM service account"
         silent: true
       - |
-        gcloud projects add-iam-policy-binding kubernetes-course-dalei \
-          --member="serviceAccount:external-secrets@kubernetes-course-dalei.iam.gserviceaccount.com" \
+        gcloud projects add-iam-policy-binding gcp-cluster-sundalei \
+          --member="serviceAccount:external-secrets@gcp-cluster-sundalei.iam.gserviceaccount.com" \
           --role="roles/secretmanager.secretAccessor"
       - cmd: gum style "Attach roles/iam.workloadIdentityUser to kubernetes service account"
         silent: true
       - |
-        gcloud iam service-accounts add-iam-policy-binding external-secrets@kubernetes-course-dalei.iam.gserviceaccount.com \
+        gcloud iam service-accounts add-iam-policy-binding external-secrets@gcp-cluster-sundalei.iam.gserviceaccount.com \
           --role roles/iam.workloadIdentityUser \
-          --member "serviceAccount:kubernetes-course-dalei.svc.id.goog[external-secrets/external-secrets]"
+          --member "serviceAccount:gcp-cluster-sundalei.svc.id.goog[external-secrets/external-secrets]"
 
   03-annotate-kubernetes-service-account:
     cmds:
