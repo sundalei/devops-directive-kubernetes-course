@@ -15,7 +15,6 @@ tasks:
         helm upgrade --install external-secrets \
           external-secrets/external-secrets \
           -n external-secrets \
-          --values values.yaml \
           --create-namespace
 
   02-create-iam-service-account:
