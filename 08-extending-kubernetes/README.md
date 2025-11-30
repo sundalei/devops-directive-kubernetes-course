@@ -15,16 +15,16 @@ Authors create `CustomResourceDefinitions` (CRDs) which enable Kubernetes to sto
 In the previous section we installed and configured `Traefik`. While kubernetes does provide some ingress capabilities out of the box, Traefik has extended these with a set of their own resources. These can be seen by running (after installing it):
 
 ```
-❯ k api-resources | grep traefik.containo.us/v
-ingressroutes                                  traefik.containo.us/v1alpha1           true         IngressRoute
-ingressroutetcps                               traefik.containo.us/v1alpha1           true         IngressRouteTCP
-ingressrouteudps                               traefik.containo.us/v1alpha1           true         IngressRouteUDP
-middlewares                                    traefik.containo.us/v1alpha1           true         Middleware
-middlewaretcps                                 traefik.containo.us/v1alpha1           true         MiddlewareTCP
-serverstransports                              traefik.containo.us/v1alpha1           true         ServersTransport
-tlsoptions                                     traefik.containo.us/v1alpha1           true         TLSOption
-tlsstores                                      traefik.containo.us/v1alpha1           true         TLSStore
-traefikservices                                traefik.containo.us/v1alpha1           true         TraefikService
+❯ k api-resources | grep traefik.io/v
+ingressroutes                                  traefik.io/v1alpha1           true         IngressRoute
+ingressroutetcps                               traefik.io/v1alpha1           true         IngressRouteTCP
+ingressrouteudps                               traefik.io/v1alpha1           true         IngressRouteUDP
+middlewares                                    traefik.io/v1alpha1           true         Middleware
+middlewaretcps                                 traefik.io/v1alpha1           true         MiddlewareTCP
+serverstransports                              traefik.io/v1alpha1           true         ServersTransport
+tlsoptions                                     traefik.io/v1alpha1           true         TLSOption
+tlsstores                                      traefik.io/v1alpha1           true         TLSStore
+traefikservices                                traefik.io/v1alpha1           true         TraefikService
 ```
 
 These provide additional functionality beyond the official kubernetes Ingress specification.

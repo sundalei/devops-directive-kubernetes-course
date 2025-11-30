@@ -28,6 +28,6 @@ tasks:
 
   build-push:
     cmds:
-      - task: build
+      - task: package
       - task: push
     desc: "Build & Push the helm chart to an oci registry"
