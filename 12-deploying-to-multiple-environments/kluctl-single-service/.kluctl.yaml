@@ -3,13 +3,13 @@ targets:
     args:
       environment: staging
     # Adding a context to .kluctl.yaml helps prevent accidentally deploying to the wrong cluster!
-    context: kind-kind
+    context: civo-cloud-cluster
 
   - name: production
     args:
       environment: production
     # Adding a context to .kluctl.yaml helps prevent accidentally deploying to the wrong cluster!
-    context: kind-kind
+    context: gke_gcp-cluster-sundalei_us-central1-a_gcp-cluster-sundalei
 
 args:
   - name: environment
