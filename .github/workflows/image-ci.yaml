@@ -9,6 +9,7 @@ on:
     # paths:
       # Only rebuild images when applications change
       # - "06-demo-application/**/*"
+      # - "!12-deploying-to-multiple-environments/**/*"
 
 jobs:
   generate-image-tag:
@@ -122,8 +123,8 @@ jobs:
           base: main
           token: ${{ secrets.MY_PULL_REQUEST_TOKEN }}
           # ADDED: [skip ci] prevents the loop
-          commit-message: "chore: update image tags to ${{ needs.generate-image-tag.outputs.image_tag }} [skip ci]"
-          title: "Update image tags to (${{ needs.generate-image-tag.outputs.image_tag }})"
+          commit-message: "chore: update image tags to ${{ needs.generate-image-tag.outputs.image_tag }}"
+          title: "Update image tags to (${{ needs.generate-image-tag.outputs.image_tag }}) [skip ci]"
           body: |
             Automated update of image tags.
             Tag: ${{ needs.generate-image-tag.outputs.image_tag }}
