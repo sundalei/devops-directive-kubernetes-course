@@ -74,6 +74,7 @@ jobs:
         if: matrix.path == '06-demo-application/api-golang'
         with:
           go-version: '1.23'
+          cache-dependency-path: 06-demo-application/api-golang/go.sum
 
       - name: Set up ko
         uses: ko-build/setup-ko@v0.9
@@ -120,4 +121,9 @@ jobs:
         with:
           base: main
           token: ${{ secrets.MY_PULL_REQUEST_TOKEN }}
+          # ADDED: [skip ci] prevents the loop
+          commit-message: "chore: update image tags to ${{ needs.generate-image-tag.outputs.image_tag }} [skip ci]"
           title: "Update image tags to (${{ needs.generate-image-tag.outputs.image_tag }})"
+          body: |
+            Automated update of image tags.
+            Tag: ${{ needs.generate-image-tag.outputs.image_tag }}
