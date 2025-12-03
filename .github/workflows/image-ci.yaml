@@ -6,16 +6,18 @@ on:
       - main
     tags:
       - "[0-9]*.[0-9]*.[0-9]*"
+    paths:
+      # Only rebuild images when applications change
+      - "06-demo-application/**/*"
 
 jobs:
-
   generate-image-tag:
     runs-on: ubuntu-latest
     outputs:
       image_tag: ${{ steps.generate-image-tag.outputs.image_tag}}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # Necessary to get all tags for IMAGE_TAG generation with git describe
           fetch-depth: 0
@@ -23,7 +25,7 @@ jobs:
       - name: Install Task
         uses: arduino/setup-task@v2
         with:
-          version: 3.x
+          version: 3.4.2
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Image Tag
@@ -31,7 +33,6 @@ jobs:
         working-directory: 14-cicd/github-actions
         run: |
           image_tag=$(task generate-version-tag)
-          echo "Generated image tag: $image_tag"
           echo "image_tag=$image_tag" >> $GITHUB_OUTPUT
 
   build-tag-push:
@@ -48,12 +49,12 @@ jobs:
           - 06-demo-application/postgresql
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Task
         uses: arduino/setup-task@v2
         with:
-          version: 3.x
+          version: 3.4.2
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up QEMU
@@ -72,23 +73,11 @@ jobs:
         uses: actions/setup-go@v6
         if: matrix.path == '06-demo-application/api-golang'
         with:
-          go-version: '1.22.x'
-          cache: false
-
-      - name: Cache Go modules
-        uses: actions/cache@v4
-        if: matrix.path == '06-demo-application/api-golang'
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('06-demo-application/api-golang/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
+          go-version: '1.23'
 
       - name: Set up ko
-        uses: ko-build/setup-ko@v0.8
+        uses: ko-build/setup-ko@v0.9
         if: matrix.path == '06-demo-application/api-golang'
-        with:
-          version: v0.17.1
 
       - name: Build Image
         env:
@@ -102,18 +91,15 @@ jobs:
     needs:
       - generate-image-tag
       - build-tag-push
-    permissions:
-      contents: write
-      pull-requests: write
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Task
         uses: arduino/setup-task@v2
         with:
-          version: 3.x
+          version: 3.4.2
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Image Tags
@@ -133,5 +119,5 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           base: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.MY_PULL_REQUEST_TOKEN }}
           title: "Update image tags to (${{ needs.generate-image-tag.outputs.image_tag }})"
