@@ -1,2 +1,2 @@
 loadGeneratorPython:
-  version: 0.0.4-52-gf2de4aa # STAGING_IMAGE_TAG
+  version: 0.0.5 # STAGING_IMAGE_TAG
